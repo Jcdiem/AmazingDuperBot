@@ -1,12 +1,13 @@
 const Discord = require('discord.js');
 const CowSay = require('cowsay');
 const client = new Discord.Client();
+const token = require('./config.json');
 
 client.once('ready', () => {
 	console.log('Ready!');
 });
 
-client.login('NzY2NDQzNTE2ODQ2MDE0NDY0.X4jcJg.tg31tdm2RmLcp-r1R-FokkNs0xg');
+client.login(token);
 
 
 client.on('message', message => {
