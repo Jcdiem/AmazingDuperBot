@@ -1,0 +1,29 @@
+{
+  "name": "discordbot",
+  "version": "1.0.0",
+  "description": "AmazingDuperBot",
+  "main": "index.js",
+  "dependencies": {
+    "@discordjs/opus": "^0.3.2",
+    "discord.js": "^12.3.1",
+    "erlpack": "^0.1.3",
+    "eslint": "^7.11.0",
+    "opusscript": "^0.0.7",
+    "sodium": "^3.0.2",
+    "zlib-sync": "^0.1.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jcdiem/AmazingDuperBot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jcdiem/AmazingDuperBot/issues"
+  },
+  "homepage": "https://github.com/Jcdiem/AmazingDuperBot#readme"
+}
