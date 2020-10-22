@@ -1,7 +1,7 @@
 # AmazingDuperBot
 
 ## What is this?
-This is abot I made to work on my Javascript and Node skills. Currently the functionality is minimal, but I plan to have a multi-functional entertainment bot by the end.
+This is a bot I made to work on my Javascript and Node skills. Currently the functionality is minimal, but I plan to have a multi-functional entertainment bot by the end.
 
 ## What can it do right now?
 I'll just leave the help page
