@@ -6,7 +6,6 @@ const prefix = config.prefix;
 const ytdl = require('ytdl-core');
 
 const queue = new Map();
-
 client.once('ready', () => {
 	console.log(`I am ready! I am in ${client.guilds.size} guilds`);
 
@@ -45,9 +44,14 @@ client.on('message', async message => {
 
 		// Cowsay command
 		else if (command === 'cowsay') {
-			message.channel.send('```' + CowSay.say({
-				text: args,
-			}) + '```');
+			const modArgs = String(args).replace(/,/g, ' ');
+			// console.log(modArgs);
+			message.channel.send('```' + CowSay.say(
+				{
+					text: String(modArgs),
+				},
+			)
+			+ '```');
 		}
 
 		// Ping command
