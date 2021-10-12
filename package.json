@@ -19,10 +19,12 @@
   "dependencies": {
     "@discordjs/builders": "^0.6.0",
     "@discordjs/opus": "^0.6.0",
+    "@discordjs/voice": "github:discordjs/voice",
     "discord.js": "^13.2.0",
     "distube": "^3.0.0-beta.39",
     "ffmpeg": "^0.0.4",
     "fluent-ffmpeg": "^2.1.2",
+    "mysql": "^2.18.1",
     "ytdl-core": "^4.9.1"
   },
   "devDependencies": {

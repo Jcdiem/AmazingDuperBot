@@ -1,18 +1,11 @@
 const fs = require('fs')
 const { Client, Intents, Collection} = require('discord.js');
+// const { joinVoiceChannel } = require('@discordjs/voice');
 const config = require('./config.json');
 
 // Create a new client instance
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
-//Create instance for client commands
-client.commands = new Collection();
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
-for (const file of commandFiles) {
-	const command = require(`./commands/${file}`);
-	// Set a new item in the Collection
-	// With the key as the command name and the value as the exported module
-	client.commands.set(command.data.name, command);
-}
+
 //Event handling
 const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
 for (const file of eventFiles) {
@@ -24,34 +17,24 @@ for (const file of eventFiles) {
 	}
 }
 
-// When the client is ready, run this code (only once)
-client.once('ready', () => {
-	console.log(`I am ready!`);
-	client.user.setActivity('with chimkens');
-});
-//If the client needs to reconnect
-client.once('reconnecting', () => {
-	console.log('Reconnecting!');
-});
 //When the client has disconnected
 client.once('disconnect', () => {
 	console.log('Disconnect!');
 });
 
-
-const bob = "you don't know me"
 client.on('interactionCreate', async interaction => {
 	if (!interaction.isCommand()) return;
 
-	const command = client.commands.get(interaction.commandName);
+	const { commandName } = interaction;
 
-	if (!command) return;
-
-	try {
-		await command.execute(interaction);
-	} catch (error) {
-		console.error(error);
-		await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
+	if (commandName === 'ping') {
+		await interaction.reply('Pong!');
+	} else if (commandName === 'server') {
+		await interaction.reply(`Server name: ${interaction.guild.name}\nTotal members: ${interaction.guild.memberCount}`);
+	} else if (commandName === 'user') {
+		await interaction.reply(`Your tag: ${interaction.user.tag}\nYour id: ${interaction.user.id}`);
+	} else if (commandName == 'zap') {
+		await interaction.reply('zoopity');
 	}
 });
 
